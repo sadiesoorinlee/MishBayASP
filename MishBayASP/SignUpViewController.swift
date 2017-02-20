@@ -37,18 +37,16 @@ class SignUpViewController: UIViewController
         
         let requestURL = NSURL(string: CreateUserURL)
         let request = NSMutableURLRequest(url: requestURL! as URL)
-        
-        if (name == "" || password == "" || email == "")
-        {
-            self.emptyTextFieldAlert()
-        }
-        
-        //Creating the post parameter
         let postParameters = "name="+name!+"&password="+password!+"&email="+email!;
         
         //Adding the parameters to request body
         request.httpBody = postParameters.data(using: String.Encoding.utf8)
         request.httpMethod = "POST"
+        
+        if (name == "" || password == "" || email == "")
+        {
+            self.emptyTextFieldAlert()
+        }
         
         let task = URLSession.shared.dataTask(with: request as URLRequest)
         {
@@ -69,7 +67,7 @@ class SignUpViewController: UIViewController
                 //Parsing the json
                 if let parseJSON = JSON
                 {
-                    var msg = "";
+                    var msg = ""
                     
                     //Getting the json response
                     msg = (parseJSON["message"] as! String?)!
@@ -93,7 +91,6 @@ class SignUpViewController: UIViewController
                     //Printing the response
                     print(msg)
                 }
-                
             }
             catch
             {
@@ -118,20 +115,16 @@ class SignUpViewController: UIViewController
     @IBAction func signUpSuccessAlert()
     {
         let alertController = UIAlertController(title: "Success", message: "You have successfully signed up", preferredStyle: .alert)
-        
         let defaultAction = UIAlertAction(title: "Yay!", style: .default, handler: nil)
         alertController.addAction(defaultAction)
-        
         present(alertController, animated: true, completion: nil)
     }
     
     @IBAction func signUpFailureAlert()
     {
         let alertController = UIAlertController(title: "Failure", message: "You were unable to sign up. Please try again.", preferredStyle: .alert)
-        
         let defaultAction = UIAlertAction(title: "Yay!", style: .default, handler: nil)
         alertController.addAction(defaultAction)
-        
         present(alertController, animated: true, completion: nil)
     }
 

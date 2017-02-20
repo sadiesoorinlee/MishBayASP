@@ -140,6 +140,21 @@ SWIFT_CLASS("_TtC10MishBayASP11AppDelegate")
 @class NSBundle;
 @class NSCoder;
 
+SWIFT_CLASS("_TtC10MishBayASP19LoginViewController")
+@interface LoginViewController : UIViewController
+@property (nonatomic, weak) IBOutlet UITextField * _Null_unspecified emailTextField;
+@property (nonatomic, weak) IBOutlet UITextField * _Null_unspecified passwordTextField;
+@property (nonatomic, readonly, copy) NSString * _Nonnull LoginUserURL;
+- (void)viewDidLoad;
+- (void)didReceiveMemoryWarning;
+- (IBAction)loginTapped:(UIButton * _Nonnull)sender;
+- (IBAction)signinErrorAlert;
+- (IBAction)emptyTextFieldAlert;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS("_TtC10MishBayASP20SignUpViewController")
 @interface SignUpViewController : UIViewController
 @property (nonatomic, weak) IBOutlet UITextField * _Null_unspecified nameTextField;
