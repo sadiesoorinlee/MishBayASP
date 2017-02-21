@@ -37,7 +37,6 @@ class LoginViewController: UIViewController
     
     @IBAction func loginTapped(_ sender: UIButton)
     {
-        
         //Getting values from text fields
         let password = passwordTextField.text
         let email = emailTextField.text
@@ -56,61 +55,63 @@ class LoginViewController: UIViewController
         {
             self.emptyTextFieldAlert();
         }
-        
-        //Creating a task to send the post request
-        let task = URLSession.shared.dataTask(with: request as URLRequest)
+        else
         {
-            data, response, error in
-            
-            if error != nil
+            //Creating a task to send the post request
+            let task = URLSession.shared.dataTask(with: request as URLRequest)
             {
-                print("error is \(error)")
-                return;
-            }
+                data, response, error in
             
-            //Parsing the response
-            do
-            {
-                //Converting resonse to NSDictionary
-                let JSON = try JSONSerialization.jsonObject(with: data!) as? [String: Any]
-                
-                //Parsing the json
-                if let parseJSON = JSON
+                if error != nil
                 {
-                    var msg = ""
-                    
-                    //Getting the json response
-                    msg = (parseJSON["message"] as! String?)!
-                    
-                    if msg == "User is registered"
-                    {
-                        DispatchQueue.main.async
-                            {
-                            self.performSegue(withIdentifier: "loginSegue", sender: self)
-                        }
-                    }
-                    
-                    if msg == "User is not found"
-                    {
-                        DispatchQueue.main.async
-                        {
-                            self.signinErrorAlert()
-                        }
-                    }
-                    
-                    //Printing the response
-                    print(msg)
+                    print("error is \(error)")
+                    return;
                 }
-            }
-            catch
-            {
-                print(error)
-            }
             
-        }
+                //Parsing the response
+                do
+                {
+                    //Converting resonse to NSDictionary
+                    let JSON = try JSONSerialization.jsonObject(with: data!) as? [String: Any]
+                
+                    //Parsing the json
+                    if let parseJSON = JSON
+                    {
+                        var msg = ""
+                    
+                        //Getting the json response
+                        msg = (parseJSON["message"] as! String?)!
+                    
+                        if msg == "User is registered"
+                        {
+                            DispatchQueue.main.async
+                            {
+                                self.performSegue(withIdentifier: "loginSegue", sender: self)
+                            }
+                        }
+                    
+                        if msg == "User is not found"
+                        {
+                            DispatchQueue.main.async
+                            {
+                                self.signinErrorAlert()
+                            }
+                        }
+                    
+                        //Printing the response
+                        print(msg)
+                    }
+                }
+                catch
+                {
+                    print(error)
+                }
+            
+            }
         
-        //Executing the task
-        task.resume()
+            //Executing the task
+            task.resume()
+        }
     }
     
     @IBAction func signinErrorAlert()
