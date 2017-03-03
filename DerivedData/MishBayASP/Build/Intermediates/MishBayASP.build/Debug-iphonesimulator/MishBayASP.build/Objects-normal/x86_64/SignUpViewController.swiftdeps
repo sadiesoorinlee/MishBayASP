@@ -6,41 +6,41 @@ provides-nominal:
 provides-member:
 - ["C10MishBayASP20SignUpViewController", ""]
 provides-dynamic-lookup:
-- "passwordTextField"
 - "emptyTextFieldAlert"
-- "signUpFailureAlert"
+- "passwordTextField"
 - "viewDidLoad"
 - "signUpSuccessAlert"
+- "nameTextField"
+- "signUpFailureAlert"
+- "didReceiveMemoryWarning"
+- "emailTextField"
 - "CreateUserURL"
 - "signUpTapped"
-- "didReceiveMemoryWarning"
-- "nameTextField"
-- "emailTextField"
 depends-top-level:
-- "SignUpViewController"
-- !private "DispatchQueue"
 - "UIButton"
 - !private "NSMutableURLRequest"
-- !private "+"
-- !private "String"
+- !private "UIAlertController"
+- !private "URL"
+- "Array"
+- "SignUpViewController"
 - "AssignmentPrecedence"
 - !private "=="
 - "CastingPrecedence"
-- !private "||"
-- !private "URLSession"
-- "UIViewController"
-- !private "UIAlertAction"
-- "Array"
-- !private "!="
-- !private "UIAlertController"
-- "StringLiteralType"
-- !private "NSURL"
-- "UITextField"
-- !private "JSONSerialization"
+- !private "+"
 - !private "URLRequest"
-- !private "BooleanLiteralType"
-- !private "URL"
 - !private "print"
+- !private "String"
+- !private "NSError"
+- !private "JSONSerialization"
+- !private "UIAlertAction"
+- !private "DispatchQueue"
+- "UIViewController"
+- !private "||"
+- !private "NSURL"
+- "StringLiteralType"
+- !private "URLSession"
+- "UITextField"
+- !private "BooleanLiteralType"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "Stride"]
 - ["Ps9AnyObject", "CreateUserURL"]
@@ -124,7 +124,6 @@ depends-member:
 - !private ["Ps7CVarArg", "text"]
 - ["Ps7CVarArg", "viewDidLoad"]
 - ["Ps7CVarArg", ""]
-- !private ["Vs9Character", "deinit"]
 - !private ["Ps10Collection", "Index"]
 - !private ["Ps10Collection", "Iterator"]
 - !private ["Ps10Collection", "SubSequence"]
@@ -429,6 +428,7 @@ depends-member:
 - !private ["PSo9NSCopying", "httpMethod"]
 - ["PSo9NSCopying", "init"]
 - !private ["PSo9NSCopying", "resume"]
+- ["CSo7NSError", "deinit"]
 - ["PSo26NSExtensionRequestHandling", "CreateUserURL"]
 - !private ["PSo26NSExtensionRequestHandling", "DispatchQueue"]
 - !private ["PSo26NSExtensionRequestHandling", "JSONSerialization"]
@@ -465,6 +465,7 @@ depends-member:
 - !private ["CSo8NSObject", "DispatchQueue"]
 - !private ["CSo8NSObject", "Encoding"]
 - !private ["CSo8NSObject", "JSONSerialization"]
+- !private ["CSo8NSObject", "NSError"]
 - !private ["CSo8NSObject", "NSMutableURLRequest"]
 - !private ["CSo8NSObject", "NSURL"]
 - !private ["CSo8NSObject", "String"]
@@ -565,6 +566,7 @@ depends-member:
 - ["C10MishBayASP20SignUpViewController", "CreateUserURL"]
 - !private ["C10MishBayASP20SignUpViewController", "DispatchQueue"]
 - !private ["C10MishBayASP20SignUpViewController", "JSONSerialization"]
+- !private ["C10MishBayASP20SignUpViewController", "NSError"]
 - !private ["C10MishBayASP20SignUpViewController", "NSMutableURLRequest"]
 - !private ["C10MishBayASP20SignUpViewController", "NSURL"]
 - !private ["C10MishBayASP20SignUpViewController", "String"]
@@ -697,6 +699,7 @@ depends-member:
 - ["CSo11UIResponder", "CreateUserURL"]
 - !private ["CSo11UIResponder", "DispatchQueue"]
 - !private ["CSo11UIResponder", "JSONSerialization"]
+- !private ["CSo11UIResponder", "NSError"]
 - !private ["CSo11UIResponder", "NSMutableURLRequest"]
 - !private ["CSo11UIResponder", "NSURL"]
 - !private ["CSo11UIResponder", "String"]
@@ -799,6 +802,7 @@ depends-member:
 - ["CSo16UIViewController", "CreateUserURL"]
 - !private ["CSo16UIViewController", "DispatchQueue"]
 - !private ["CSo16UIViewController", "JSONSerialization"]
+- !private ["CSo16UIViewController", "NSError"]
 - !private ["CSo16UIViewController", "NSMutableURLRequest"]
 - !private ["CSo16UIViewController", "NSURL"]
 - !private ["CSo16UIViewController", "String"]
@@ -847,7 +851,6 @@ depends-member:
 - ["CSo18URLSessionDataTask", "deinit"]
 - !private ["CSo18URLSessionDataTask", "resume"]
 - !private ["CSo14URLSessionTask", "resume"]
-- !private ["Sc", "deinit"]
 - !private ["Ps15UnsignedInteger", "Stride"]
 - !private ["Ps15UnsignedInteger", "_DisallowMixedSignArithmetic"]
 - !private ["Ps15_CVarArgAligned", "Stride"]
@@ -947,7 +950,6 @@ depends-nominal:
 - !private "PSo15CALayerDelegate"
 - !private "V12CoreGraphics7CGFloat"
 - "Ps7CVarArg"
-- !private "Vs9Character"
 - !private "Ps10Collection"
 - "Ps10Comparable"
 - "Ps28CustomDebugStringConvertible"
@@ -999,6 +1001,7 @@ depends-nominal:
 - "CSo7NSCoder"
 - "PSo8NSCoding"
 - "PSo9NSCopying"
+- "CSo7NSError"
 - "PSo26NSExtensionRequestHandling"
 - "PSo16NSMutableCopying"
 - "CSo19NSMutableURLRequest"
@@ -1057,7 +1060,6 @@ depends-nominal:
 - "CSo10URLSession"
 - "CSo18URLSessionDataTask"
 - !private "CSo14URLSessionTask"
-- !private "Sc"
 - !private "Ps15UnsignedInteger"
 - !private "Ps15_CVarArgAligned"
 - !private "Ps22_CVarArgPassedAsDouble"

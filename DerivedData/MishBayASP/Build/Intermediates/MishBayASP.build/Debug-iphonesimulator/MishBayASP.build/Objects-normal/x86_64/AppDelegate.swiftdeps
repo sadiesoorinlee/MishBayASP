@@ -6,22 +6,22 @@ provides-nominal:
 provides-member:
 - ["C10MishBayASP11AppDelegate", ""]
 provides-dynamic-lookup:
-- "applicationDidBecomeActive"
-- "applicationWillEnterForeground"
 - "applicationWillTerminate"
-- "application"
-- "window"
-- "applicationWillResignActive"
 - "applicationDidEnterBackground"
+- "applicationWillResignActive"
+- "window"
+- "applicationWillEnterForeground"
+- "application"
+- "applicationDidBecomeActive"
 depends-top-level:
+- "UIResponder"
+- "AppDelegate"
+- "UIApplicationLaunchOptionsKey"
+- "UIWindow"
+- "UIApplicationDelegate"
 - "UIApplication"
 - !private "BooleanLiteralType"
-- "AppDelegate"
-- "UIResponder"
 - "Bool"
-- "UIWindow"
-- "UIApplicationLaunchOptionsKey"
-- "UIApplicationDelegate"
 depends-member:
 - ["Ps9AnyObject", "application"]
 - ["Ps9AnyObject", "applicationDidBecomeActive"]

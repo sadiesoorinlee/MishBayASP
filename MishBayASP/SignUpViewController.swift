@@ -42,7 +42,7 @@ class SignUpViewController: UIViewController
         //Adding the parameters to request body
         request.httpBody = postParameters.data(using: String.Encoding.utf8)
         request.httpMethod = "POST"
-        
+
         if (name == "" || password == "" || email == "")
         {
             self.emptyTextFieldAlert()
@@ -50,12 +50,12 @@ class SignUpViewController: UIViewController
         
         let task = URLSession.shared.dataTask(with: request as URLRequest)
         {
-            data, response, error in
+            (data, response, error) in
             
-            if error != nil
+            guard error == nil else
             {
-                print("error is \(error)")
-                return;
+                print(error!)
+                return
             }
             
             //Parsing the response
@@ -64,39 +64,34 @@ class SignUpViewController: UIViewController
                 //Converting resonse to NSDictionary
                 let JSON = try JSONSerialization.jsonObject(with: data!) as? [String: Any]
                 
-                //Parsing the json
-                if let parseJSON = JSON
+                var msg = ""
+                    
+                //Getting the json response
+                msg = (JSON!["message"] as? String)!
+                
+                if msg == "User created successfully"
                 {
-                    var msg = ""
-                    
-                    //Getting the json response
-                    msg = (parseJSON["message"] as! String?)!
-                    
-                    if msg == "User created successfully"
+                    DispatchQueue.main.async
                     {
-                        DispatchQueue.main.async
-                            {
-                                self.signUpSuccessAlert()
-                        }
+                        self.signUpSuccessAlert()
                     }
-                    
-                    if msg == "Could not create user"
-                    {
-                        DispatchQueue.main.async
-                            {
-                                self.signUpFailureAlert()
-                        }
-                    }
-                    
-                    //Printing the response
-                    print(msg)
                 }
+                    
+                if msg == "Could not create user"
+                {
+                    DispatchQueue.main.async
+                    {
+                        self.signUpFailureAlert()
+                    }
+                }
+                    
+                //Printing the response
+                print(msg)
             }
-            catch
+            catch let error as NSError
             {
                 print(error)
             }
-            
         }
         
         //Executing the task

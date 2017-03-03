@@ -116,6 +116,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 #if defined(__has_feature) && __has_feature(modules)
 @import UIKit;
+@import Foundation;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -135,10 +136,34 @@ SWIFT_CLASS("_TtC10MishBayASP11AppDelegate")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class UIButton;
-@class UITextField;
+@class UIImageView;
+@class UILabel;
 @class NSBundle;
 @class NSCoder;
+
+SWIFT_CLASS("_TtC10MishBayASP20DetailViewController")
+@interface DetailViewController : UIViewController
+@property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified imageImageView;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified deadlineLabel;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified nameLabel;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified bidLabel;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified descriptionLabel;
+@property (nonatomic, copy) NSString * _Null_unspecified id;
+@property (nonatomic, readonly, copy) NSString * _Nonnull GetItemsURL;
+@property (nonatomic, copy) NSArray<NSString *> * _Nonnull deadlineArray;
+@property (nonatomic, copy) NSArray<NSString *> * _Nonnull namesArray;
+@property (nonatomic, copy) NSArray<NSString *> * _Nonnull bidArray;
+@property (nonatomic, copy) NSArray<NSString *> * _Nonnull descriptionArray;
+@property (nonatomic, copy) NSArray<NSString *> * _Nonnull idArray;
+- (void)viewDidLoad;
+- (void)displayData;
+- (void)fillLabels;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class UIButton;
+@class UITextField;
 
 SWIFT_CLASS("_TtC10MishBayASP19LoginViewController")
 @interface LoginViewController : UIViewController
@@ -167,6 +192,39 @@ SWIFT_CLASS("_TtC10MishBayASP20SignUpViewController")
 - (IBAction)emptyTextFieldAlert;
 - (IBAction)signUpSuccessAlert;
 - (IBAction)signUpFailureAlert;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC10MishBayASP23TableViewCellController")
+@interface TableViewCellController : UITableViewCell
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified deadlineLabel;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified nameLabel;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified bidLabel;
+- (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class UIImage;
+@class UITableView;
+@class UIStoryboardSegue;
+
+SWIFT_CLASS("_TtC10MishBayASP19TableViewController")
+@interface TableViewController : UITableViewController
+@property (nonatomic, copy) NSArray<NSString *> * _Nonnull deadlineArray;
+@property (nonatomic, copy) NSArray<NSString *> * _Nonnull namesArray;
+@property (nonatomic, copy) NSArray<NSString *> * _Nonnull bidArray;
+@property (nonatomic, strong) UIImage * _Nullable image;
+@property (nonatomic, readonly, copy) NSString * _Nonnull GetItemsURL;
+- (IBAction)refresh:(id _Nonnull)sender;
+- (void)viewDidLoad;
+- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section;
+- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Nullable)sender;
+- (void)getItems;
+- (void)getImage;
+- (nonnull instancetype)initWithStyle:(UITableViewStyle)style OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
