@@ -118,7 +118,7 @@ class SignUpViewController: UIViewController
     @IBAction func signUpFailureAlert()
     {
         let alertController = UIAlertController(title: "Failure", message: "You were unable to sign up. Please try again.", preferredStyle: .alert)
-        let defaultAction = UIAlertAction(title: "Yay!", style: .default, handler: nil)
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(defaultAction)
         present(alertController, animated: true, completion: nil)
     }

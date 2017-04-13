@@ -1,11 +1,12 @@
-version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
-options: "ea5b9f3f0c49f992e54059194573fe9b"
-build_time: [541623841, 617368000]
+version: "Apple Swift version 3.1 (swiftlang-802.0.51 clang-802.0.41)"
+options: "5cdc46c2d80ef9cf776a1c946df32a6c"
+build_time: [545369271, 911734000]
 inputs:
-  "/Users/soorinlee/Desktop/MishBayASP/MishBayASP/LoginViewController.swift": [541551042, 0]
-  "/Users/soorinlee/Desktop/MishBayASP/MishBayASP/SignUpViewController.swift": [541551038, 0]
+  "/Users/soorinlee/Desktop/MishBayASP/MishBayASP/BidViewController.swift": [545369180, 0]
+  "/Users/soorinlee/Desktop/MishBayASP/MishBayASP/LoginViewController.swift": [545369268, 0]
+  "/Users/soorinlee/Desktop/MishBayASP/MishBayASP/SignUpViewController.swift": [545234782, 0]
   "/Users/soorinlee/Desktop/MishBayASP/MishBayASP/ViewController.swift": [540410283, 0]
-  "/Users/soorinlee/Desktop/MishBayASP/MishBayASP/DetailViewController.swift": [541553807, 0]
-  "/Users/soorinlee/Desktop/MishBayASP/MishBayASP/TableViewController.swift": [541622490, 0]
+  "/Users/soorinlee/Desktop/MishBayASP/MishBayASP/DetailViewController.swift": [545365874, 0]
+  "/Users/soorinlee/Desktop/MishBayASP/MishBayASP/TableViewController.swift": [545369150, 0]
   "/Users/soorinlee/Desktop/MishBayASP/MishBayASP/AppDelegate.swift": [540410283, 0]
   "/Users/soorinlee/Desktop/MishBayASP/MishBayASP/TableViewCellController.swift": [541619822, 0]

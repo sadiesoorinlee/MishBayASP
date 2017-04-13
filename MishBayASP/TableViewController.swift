@@ -17,7 +17,7 @@ class TableViewController: UITableViewController
     var bidArray = [String]()
     var image:UIImage?
     var count:Int?
-    
+    var name:String = LoginViewController.Variables.name
     //let GetItemsURL = "http://srl17.sps.edu/GetItems.php"
     let GetItemsURL = "http://localhost:8888/GetItems.php"
        
@@ -146,7 +146,7 @@ class TableViewController: UITableViewController
             
             if error != nil
             {
-                print("error is \(error)")
+                print("error is \(String(describing: error))")
                 return;
             }
             

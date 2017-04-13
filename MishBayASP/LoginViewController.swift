@@ -15,6 +15,13 @@ class LoginViewController: UIViewController
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    var username: String!
+    {
+        didSet
+        {
+            Variables.name = username
+        }
+    }
     //let LoginUserURL = "http://srl17.sps.edu/LoginUser.php"
     let LoginUserURL = "http://localhost:8888/LoginUser.php"
     
@@ -28,6 +35,10 @@ class LoginViewController: UIViewController
     {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    struct Variables {
+        static var name:String = "lol"
     }
     
     @IBAction func loginTapped(_ sender: UIButton)
@@ -77,6 +88,7 @@ class LoginViewController: UIViewController
                         DispatchQueue.main.async
                         {
                             self.performSegue(withIdentifier: "loginSegue", sender: self)
+                            self.username = (JSON!["name"] as? String)!
                         }
                     }
                     

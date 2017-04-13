@@ -10,6 +10,7 @@
 		1F0D6C3E1E5CC148008BC93E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D6C3D1E5CC148008BC93E /* TableViewController.swift */; };
 		1F0D6C401E5CC159008BC93E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D6C3F1E5CC159008BC93E /* DetailViewController.swift */; };
 		1F0D6C421E5CC434008BC93E /* TableViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D6C411E5CC434008BC93E /* TableViewCellController.swift */; };
+		1F45A0871E9672C10064FF87 /* BidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F45A0861E9672C10064FF87 /* BidViewController.swift */; };
 		1F5620DC1E5B3D53008DB266 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5620DB1E5B3D53008DB266 /* LoginViewController.swift */; };
 		1FAC9FE11E537CAB00CCD195 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAC9FE01E537CAB00CCD195 /* AppDelegate.swift */; };
 		1FAC9FE31E537CAB00CCD195 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAC9FE21E537CAB00CCD195 /* ViewController.swift */; };
@@ -23,6 +24,7 @@
 		1F0D6C3D1E5CC148008BC93E /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		1F0D6C3F1E5CC159008BC93E /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		1F0D6C411E5CC434008BC93E /* TableViewCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellController.swift; sourceTree = "<group>"; };
+		1F45A0861E9672C10064FF87 /* BidViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BidViewController.swift; sourceTree = "<group>"; };
 		1F5620DB1E5B3D53008DB266 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1FAC9FDD1E537CAB00CCD195 /* MishBayASP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MishBayASP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FAC9FE01E537CAB00CCD195 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				1F0D6C3D1E5CC148008BC93E /* TableViewController.swift */,
 				1F0D6C411E5CC434008BC93E /* TableViewCellController.swift */,
 				1F0D6C3F1E5CC159008BC93E /* DetailViewController.swift */,
+				1F45A0861E9672C10064FF87 /* BidViewController.swift */,
 				1FAC9FE41E537CAB00CCD195 /* Main.storyboard */,
 				1FAC9FE71E537CAB00CCD195 /* Assets.xcassets */,
 				1FAC9FE91E537CAB00CCD195 /* LaunchScreen.storyboard */,
@@ -151,6 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F45A0871E9672C10064FF87 /* BidViewController.swift in Sources */,
 				1F5620DC1E5B3D53008DB266 /* LoginViewController.swift in Sources */,
 				1FAC9FF31E537E7800CCD195 /* SignUpViewController.swift in Sources */,
 				1FAC9FE31E537CAB00CCD195 /* ViewController.swift in Sources */,

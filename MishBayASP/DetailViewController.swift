@@ -20,12 +20,13 @@ class DetailViewController: UIViewController
     
     var row: Int!
     var id: String!
-    let GetItemsURL = "http://srl17.sps.edu/GetItems.php"
     var deadlineArray = [String]()
     var namesArray = [String]()
     var bidArray = [String]()
     var descriptionArray = [String]()
     var idArray = [String]()
+    //let GetItemsURL = "http://srl17.sps.edu/GetItems.php"
+    let GetItemsURL = "http://localhost:8888/GetItems.php"
     
     override func viewDidLoad()
     {
@@ -33,20 +34,17 @@ class DetailViewController: UIViewController
         displayData()
     }
     
-    /*override func prepare(for segue: UIStoryboardSegue, sender: Any!)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any!)
     {
         //Set the destination View Controller
         let bidScene = segue.destination as! BidViewController
         
         //Pass objects to the destination View Controller
-        bidScene.row = row
-        bidScene.bid = Int(bidLabel.text!)
         bidScene.id = id
-    }*/
+    }
     
     func displayData()
     {
-
         let requestURL = NSURL(string: GetItemsURL)
         let request = NSMutableURLRequest(url: requestURL! as URL)
         request.httpMethod = "GET"
@@ -54,12 +52,12 @@ class DetailViewController: UIViewController
         //Creating a task to send the post request
         let task = URLSession.shared.dataTask(with: request as URLRequest)
         {
-            data, response, error in
+            (data, response, error) in
             
-            if error != nil
+            guard error == nil else
             {
-                print("error is \(error)")
-                return;
+                print(error!)
+                return
             }
             
             //Parsing the response
@@ -91,19 +89,14 @@ class DetailViewController: UIViewController
                         }
                         
                         //Create an array of descripsions
-                        if let descripsion = ((JSONArray)[i] as? NSDictionary)?["description"] as? String
+                        if let description = ((JSONArray)[i] as? NSDictionary)?["description"] as? String
                         {
-                            self.descriptionArray.append(descripsion)
+                            self.descriptionArray.append(description)
                         }
                         
-                        if let descripsion = ((JSONArray)[i] as? NSDictionary)?["description"] as? String
+                        if let id = ((JSONArray)[i] as? NSDictionary)?["ID"] as? String
                         {
-                            self.descriptionArray.append(descripsion)
-                        }
-                        
-                        if let descripsion = ((JSONArray)[i] as? NSDictionary)?["ID"] as? String
-                        {
-                            self.idArray.append(descripsion)
+                            self.idArray.append(id)
                         }
                         
                         i += 1

@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>application-identifier</key>
-	<string>com.SadieLee.MishBayASP</string>
+	<string>FAKETEAMID.com.SadieLee.MishBayASP</string>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>com.SadieLee.MishBayASP</string>
+		<string>FAKETEAMID.com.SadieLee.MishBayASP</string>
 	</array>
 </dict>
 </plist>
