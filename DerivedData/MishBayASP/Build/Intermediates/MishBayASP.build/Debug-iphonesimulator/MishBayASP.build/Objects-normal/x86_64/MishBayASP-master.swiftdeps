@@ -1,12 +1,12 @@
 version: "Apple Swift version 3.1 (swiftlang-802.0.51 clang-802.0.41)"
 options: "5cdc46c2d80ef9cf776a1c946df32a6c"
-build_time: [545369271, 911734000]
+build_time: [546009087, 924583000]
 inputs:
   "/Users/soorinlee/Desktop/MishBayASP/MishBayASP/BidViewController.swift": [545369180, 0]
   "/Users/soorinlee/Desktop/MishBayASP/MishBayASP/LoginViewController.swift": [545369268, 0]
   "/Users/soorinlee/Desktop/MishBayASP/MishBayASP/SignUpViewController.swift": [545234782, 0]
   "/Users/soorinlee/Desktop/MishBayASP/MishBayASP/ViewController.swift": [540410283, 0]
-  "/Users/soorinlee/Desktop/MishBayASP/MishBayASP/DetailViewController.swift": [545365874, 0]
-  "/Users/soorinlee/Desktop/MishBayASP/MishBayASP/TableViewController.swift": [545369150, 0]
+  "/Users/soorinlee/Desktop/MishBayASP/MishBayASP/DetailViewController.swift": [546009086, 0]
+  "/Users/soorinlee/Desktop/MishBayASP/MishBayASP/TableViewController.swift": [546008203, 0]
   "/Users/soorinlee/Desktop/MishBayASP/MishBayASP/AppDelegate.swift": [540410283, 0]
   "/Users/soorinlee/Desktop/MishBayASP/MishBayASP/TableViewCellController.swift": [541619822, 0]

@@ -18,18 +18,22 @@ class TableViewController: UITableViewController
     var image:UIImage?
     var count:Int?
     var name:String = LoginViewController.Variables.name
+    var refresh = UIRefreshControl()
     //let GetItemsURL = "http://srl17.sps.edu/GetItems.php"
     let GetItemsURL = "http://localhost:8888/GetItems.php"
-       
-    @IBAction func refresh(_ sender: Any)
-    {
-        self.tableView.reloadData()
-    }
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        self.tableView.reloadData()
+        refresh.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refresh.addTarget(self, action: #selector(TableViewController.getItems), for: UIControlEvents.valueChanged)
+        tableView.addSubview(refresh)
+        getItems()
+    }
+    
+    override func viewDidAppear(_ animated: Bool)
+    {
+        super.viewDidAppear(animated)
         getItems()
     }
     
@@ -89,6 +93,13 @@ class TableViewController: UITableViewController
             {
                 let myJSON : AnyObject! = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as AnyObject!
                 
+                if self.namesArray.count > 0 || self.deadlineArray.count > 0 || self.bidArray.count > 0
+                {
+                    self.namesArray.removeAll(keepingCapacity: false)
+                    self.deadlineArray.removeAll(keepingCapacity: false)
+                    self.bidArray.removeAll(keepingCapacity: false)
+                }
+                
                 if let JSONArray : NSArray = myJSON as? NSArray
                 {
                     var i = 0
@@ -115,6 +126,11 @@ class TableViewController: UITableViewController
                         i += 1
                     }
                 }
+                
+                DispatchQueue.main.async
+                    {
+                        self.tableView.reloadData()
+                }
             }
             catch
             {
@@ -126,6 +142,8 @@ class TableViewController: UITableViewController
         
         //Executing the task
         task.resume()
+        
+        refresh.endRefreshing()
     }
     
     func getImage()

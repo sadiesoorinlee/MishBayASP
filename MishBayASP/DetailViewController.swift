@@ -34,6 +34,12 @@ class DetailViewController: UIViewController
         displayData()
     }
     
+    override func viewDidAppear(_ animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        displayData()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any!)
     {
         //Set the destination View Controller
@@ -48,6 +54,15 @@ class DetailViewController: UIViewController
         let requestURL = NSURL(string: GetItemsURL)
         let request = NSMutableURLRequest(url: requestURL! as URL)
         request.httpMethod = "GET"
+        
+        if self.namesArray.count > 0 || self.deadlineArray.count > 0 || self.bidArray.count > 0 || self.descriptionArray.count > 0 || self.idArray.count > 0
+        {
+            self.namesArray.removeAll(keepingCapacity: false)
+            self.deadlineArray.removeAll(keepingCapacity: false)
+            self.bidArray.removeAll(keepingCapacity: false)
+            self.descriptionArray.removeAll(keepingCapacity: false)
+            self.idArray.removeAll(keepingCapacity: false)
+        }
         
         //Creating a task to send the post request
         let task = URLSession.shared.dataTask(with: request as URLRequest)
@@ -103,7 +118,7 @@ class DetailViewController: UIViewController
                     }
                     
                     DispatchQueue.main.async {
-                        self.fillLabels();
+                        self.fillLabels()
                     }
                 }
             }

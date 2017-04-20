@@ -192,6 +192,7 @@ SWIFT_CLASS("_TtC10MishBayASP20DetailViewController")
 @property (nonatomic, copy) NSArray<NSString *> * _Nonnull idArray;
 @property (nonatomic, readonly, copy) NSString * _Nonnull GetItemsURL;
 - (void)viewDidLoad;
+- (void)viewDidAppear:(BOOL)animated;
 - (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Null_unspecified)sender;
 - (void)displayData;
 - (void)fillLabels;
@@ -243,6 +244,7 @@ SWIFT_CLASS("_TtC10MishBayASP23TableViewCellController")
 @end
 
 @class UIImage;
+@class UIRefreshControl;
 @class UITableView;
 
 SWIFT_CLASS("_TtC10MishBayASP19TableViewController")
@@ -252,9 +254,10 @@ SWIFT_CLASS("_TtC10MishBayASP19TableViewController")
 @property (nonatomic, copy) NSArray<NSString *> * _Nonnull bidArray;
 @property (nonatomic, strong) UIImage * _Nullable image;
 @property (nonatomic, copy) NSString * _Nonnull name;
+@property (nonatomic, strong) UIRefreshControl * _Nonnull refresh;
 @property (nonatomic, readonly, copy) NSString * _Nonnull GetItemsURL;
-- (IBAction)refresh:(id _Nonnull)sender;
 - (void)viewDidLoad;
+- (void)viewDidAppear:(BOOL)animated;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Nullable)sender;
