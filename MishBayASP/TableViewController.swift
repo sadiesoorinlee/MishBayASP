@@ -15,12 +15,13 @@ class TableViewController: UITableViewController
     var deadlineArray = [String]()
     var namesArray = [String]()
     var bidArray = [String]()
-    var image:UIImage?
+    var imageArray = [UIImage]()
     var count:Int?
     var name:String = LoginViewController.Variables.name
     var refresh = UIRefreshControl()
     //let GetItemsURL = "http://srl17.sps.edu/GetItems.php"
     let GetItemsURL = "http://localhost:8888/GetItems.php"
+    let GetImageURL = "http://localhost:8888/GetImage.php"
     
     override func viewDidLoad()
     {
@@ -39,7 +40,7 @@ class TableViewController: UITableViewController
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return namesArray.count
+        return imageArray.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -56,16 +57,17 @@ class TableViewController: UITableViewController
         let name = namesArray[indexPath.row]
         cell.nameLabel?.text = name
         
+        let image = imageArray[indexPath.row]
+        cell.itemImageView?.image = image
+        
         return cell
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        //Set the destination View Controller
-        let detailScene = segue.destination as! DetailViewController
+        let detailScene = segue.destination as! DetailViewController //Set destination View Controller
         
-        //Pass the selected object to the destination View Controller
-        if let indexPath = self.tableView.indexPathForSelectedRow
+        if let indexPath = self.tableView.indexPathForSelectedRow //Passs object to destination View Controller
         {
             detailScene.row = Int(indexPath.row)
         }
@@ -77,8 +79,7 @@ class TableViewController: UITableViewController
         let request = NSMutableURLRequest(url: requestURL! as URL)
         request.httpMethod = "GET"
         
-        //Creating a task to send the post request
-        let task = URLSession.shared.dataTask(with: request as URLRequest)
+        let task = URLSession.shared.dataTask(with: request as URLRequest) //Creating task to send post request
         {
             (data, response, error) in
             
@@ -88,12 +89,11 @@ class TableViewController: UITableViewController
                 return
             }
             
-            //Parsing the response
-            do
+            do //Parsing response
             {
                 let myJSON : AnyObject! = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as AnyObject!
                 
-                if self.namesArray.count > 0 || self.deadlineArray.count > 0 || self.bidArray.count > 0
+                if self.namesArray.count > 0 || self.deadlineArray.count > 0 || self.bidArray.count > 0 //Empty arrays
                 {
                     self.namesArray.removeAll(keepingCapacity: false)
                     self.deadlineArray.removeAll(keepingCapacity: false)
@@ -105,19 +105,16 @@ class TableViewController: UITableViewController
                     var i = 0
                     while i<JSONArray.count
                     {
-                        //Create an array of names
                         if let name = ((JSONArray)[i] as? NSDictionary)?["name"] as? String
                         {
                             self.namesArray.append(name)
                         }
                         
-                        //Create an array of deadlines
                         if let deadline = ((JSONArray)[i] as? NSDictionary)?["deadline"] as? String
                         {
                             self.deadlineArray.append(deadline)
                         }
                         
-                        //Create an array of highest bids
                         if let bid = ((JSONArray)[i] as? NSDictionary)?["highest_bid"] as? String
                         {
                             self.bidArray.append(bid)
@@ -128,60 +125,56 @@ class TableViewController: UITableViewController
                 }
                 
                 DispatchQueue.main.async
-                    {
-                        self.tableView.reloadData()
+                {
+                    self.getImage()
+                    self.tableView.reloadData()
                 }
             }
             catch
             {
-                
                 print(error)
             }
-            
         }
         
-        //Executing the task
-        task.resume()
-        
+        task.resume() //Executing task
         refresh.endRefreshing()
     }
     
     func getImage()
     {
-        //Creating NSURL
-        let requestURL = NSURL(string: GetItemsURL)
-        
-        //Creating NSMutableURLRequest
+        let requestURL = NSURL(string: GetImageURL)
         let request = NSMutableURLRequest(url: requestURL! as URL)
-        
-        //Setting the method to post
         request.httpMethod = "GET"
         
-        //Creating a task to send the post request
-        let task = URLSession.shared.dataTask(with: request as URLRequest)
+        let task = URLSession.shared.dataTask(with: request as URLRequest) //Creating task to send the post request
         {
-            data, response, error in
+            (data, response, error) in
             
-            if error != nil
+            guard error == nil else
             {
-                print("error is \(String(describing: error))")
-                return;
+                print(error!)
+                return
             }
             
-            //Parsing the response
-            do
+            do //Parsing response
             {
-                //Converting resonse to NSDictionary
                 let myJSON : AnyObject! = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as AnyObject!
+                
+                if self.imageArray.count > 0 //Empty imageArray
+                {
+                    self.imageArray.removeAll(keepingCapacity: false)
+                }
+                
                 if let JSONArray : NSArray = myJSON as? NSArray
                 {
                     var i = 0
                     while i<JSONArray.count
                     {
-                        //Create an array of
-                        if let name = ((JSONArray)[i] as? NSDictionary)?["name"] as? String
+                        if let pictureString = ((JSONArray)[i] as? NSDictionary)?["picture"] as? String
                         {
-                            self.namesArray.append(name)
+                            let data = NSData(base64Encoded: pictureString, options: NSData.Base64DecodingOptions.ignoreUnknownCharacters)
+                            let picture = UIImage(data: data! as Data)
+                            self.imageArray.append(picture!)
                         }
                         
                         i += 1
@@ -190,14 +183,11 @@ class TableViewController: UITableViewController
             }
             catch
             {
-                
                 print(error)
             }
-            
         }
         
-        //Executing the task
-        task.resume()
+        task.resume() //Executing task
     }
     
 }

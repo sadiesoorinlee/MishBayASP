@@ -12,7 +12,7 @@ import UIKit
 class TableViewCellController: UITableViewCell
 {
     
-    //@IBOutlet weak var imageImageView: UIImageView!
+    @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var deadlineLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var bidLabel: UILabel!

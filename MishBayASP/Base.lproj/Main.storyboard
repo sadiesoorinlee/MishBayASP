@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="T4J-QS-4cg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="T4J-QS-4cg">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -342,6 +342,7 @@
                                 <connections>
                                     <outlet property="bidLabel" destination="4PM-GU-rhb" id="Zq6-31-G88"/>
                                     <outlet property="deadlineLabel" destination="3no-Jw-2Om" id="CtC-y3-6ab"/>
+                                    <outlet property="itemImageView" destination="ZV9-Jj-SDv" id="age-1T-0y3"/>
                                     <outlet property="nameLabel" destination="W0L-Mj-h80" id="rma-CW-Zhc"/>
                                     <segue destination="jRy-Mi-m2H" kind="show" id="nii-B5-KI0"/>
                                 </connections>
@@ -483,6 +484,7 @@
                         <outlet property="bidLabel" destination="eWN-8s-lUA" id="1LL-aU-NbA"/>
                         <outlet property="deadlineLabel" destination="BfC-qO-vhm" id="3Er-Sc-wDM"/>
                         <outlet property="descriptionLabel" destination="Mr5-Dc-cxD" id="38H-V8-2q1"/>
+                        <outlet property="itemImageView" destination="53N-Fl-HZg" id="ztX-h8-zXB"/>
                         <outlet property="nameLabel" destination="CPA-C9-45d" id="aiM-Lf-hy2"/>
                     </connections>
                 </viewController>

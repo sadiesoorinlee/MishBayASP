@@ -14,16 +14,21 @@ class LoginViewController: UIViewController
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    //let LoginUserURL = "http://srl17.sps.edu/LoginUser.php"
+    let LoginUserURL = "http://localhost:8888/LoginUser.php"
     
-    var username: String!
+    var username: String! //Save user's name as a variable
     {
         didSet
         {
             Variables.name = username
         }
     }
-    //let LoginUserURL = "http://srl17.sps.edu/LoginUser.php"
-    let LoginUserURL = "http://localhost:8888/LoginUser.php"
+    
+    struct Variables
+    {
+        static var name:String = ""
+    }
     
     override func viewDidLoad()
     {
@@ -37,22 +42,14 @@ class LoginViewController: UIViewController
         // Dispose of any resources that can be recreated.
     }
     
-    struct Variables {
-        static var name:String = "lol"
-    }
-    
     @IBAction func loginTapped(_ sender: UIButton)
     {
-        //Getting values from text fields
         let password = passwordTextField.text
         let email = emailTextField.text
-        
         let requestURL = NSURL(string: LoginUserURL)
         let request = NSMutableURLRequest(url: requestURL! as URL)
         let postParameters = "email="+email!+"&password="+password!;
-        
-        //Adding the parameters to request body
-        request.httpBody = postParameters.data(using: String.Encoding.utf8)
+        request.httpBody = postParameters.data(using: String.Encoding.utf8) //Adding parameters to request body
         request.httpMethod = "POST"
         
         if (password == "" || email == "")
@@ -61,8 +58,7 @@ class LoginViewController: UIViewController
         }
         else
         {
-            //Creating a task to send the post request
-            let task = URLSession.shared.dataTask(with: request as URLRequest)
+            let task = URLSession.shared.dataTask(with: request as URLRequest) //Creating task to send post request
             {
                 (data, response, error) in
                 
@@ -72,23 +68,18 @@ class LoginViewController: UIViewController
                     return
                 }
                 
-                //Parsing the response
-                do
+                do //Parsing the response
                 {
-                    //Converting resonse to NSDictionary
-                    let JSON = try JSONSerialization.jsonObject(with: data!) as? [String: Any]
-                    
+                    let JSON = try JSONSerialization.jsonObject(with: data!) as? [String: Any] //Converting response
                     var msg = ""
-                    
-                    //Getting the json response
-                    msg = (JSON!["message"] as? String)!
+                    msg = (JSON!["message"] as? String)! //Getting json response
                     
                     if msg == "User login successful"
                     {
                         DispatchQueue.main.async
                         {
                             self.performSegue(withIdentifier: "loginSegue", sender: self)
-                            self.username = (JSON!["name"] as? String)!
+                            self.username = (JSON!["name"] as? String)! //Store user's name
                         }
                     }
                     
@@ -100,8 +91,7 @@ class LoginViewController: UIViewController
                         }
                     }
                     
-                    //Printing the response
-                    print(msg)
+                    print(msg) //Printing response
                 }
                 catch let error as NSError
                 {
@@ -109,8 +99,7 @@ class LoginViewController: UIViewController
                 }
             }
         
-            //Executing the task
-            task.resume()
+            task.resume() //Executing task
         }
     }
     

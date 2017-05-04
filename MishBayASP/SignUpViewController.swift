@@ -15,7 +15,6 @@ class SignUpViewController: UIViewController
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
-    
     //let CreateUserURL = "http://srl17.sps.edu/CreateUser.php"
     let CreateUserURL = "http://localhost:8888/CreateUser.php"
     
@@ -34,13 +33,10 @@ class SignUpViewController: UIViewController
         let name = nameTextField.text
         let password = passwordTextField.text
         let email = emailTextField.text
-        
         let requestURL = NSURL(string: CreateUserURL)
         let request = NSMutableURLRequest(url: requestURL! as URL)
         let postParameters = "name="+name!+"&password="+password!+"&email="+email!;
-        
-        //Adding the parameters to request body
-        request.httpBody = postParameters.data(using: String.Encoding.utf8)
+        request.httpBody = postParameters.data(using: String.Encoding.utf8) //Adding parameters to request body
         request.httpMethod = "POST"
 
         if (name == "" || password == "" || email == "")
@@ -58,17 +54,12 @@ class SignUpViewController: UIViewController
                 return
             }
             
-            //Parsing the response
-            do
+            do //Parsing response
             {
-                //Converting resonse to NSDictionary
-                let JSON = try JSONSerialization.jsonObject(with: data!) as? [String: Any]
-                
+                let JSON = try JSONSerialization.jsonObject(with: data!) as? [String: Any] //Converting response
                 var msg = ""
-                    
-                //Getting the json response
-                msg = (JSON!["message"] as? String)!
-                
+                msg = (JSON!["message"] as? String)! //Getting json response
+            
                 if msg == "User created successfully"
                 {
                     DispatchQueue.main.async
@@ -84,18 +75,18 @@ class SignUpViewController: UIViewController
                         self.signUpFailureAlert()
                     }
                 }
-                    
-                //Printing the response
-                print(msg)
+                
+                print(msg) //Printing response
             }
+                
             catch let error as NSError
             {
                 print(error)
             }
+            
         }
         
-        //Executing the task
-        task.resume()
+        task.resume() //Executing task
     }
 
     @IBAction func emptyTextFieldAlert()
