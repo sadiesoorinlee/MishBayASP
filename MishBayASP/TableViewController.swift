@@ -19,9 +19,10 @@ class TableViewController: UITableViewController
     var count:Int?
     var name:String = LoginViewController.Variables.name
     var refresh = UIRefreshControl()
-    //let GetItemsURL = "http://srl17.sps.edu/GetItems.php"
-    let GetItemsURL = "http://localhost:8888/GetItems.php"
-    let GetImageURL = "http://localhost:8888/GetImage.php"
+    let GetItemsURL = "http://srl17.sps.edu/GetItems.php"
+    let GetImageURL = "http://srl17.sps.edu/GetImage.php"
+    //let GetItemsURL = "http://localhost:8888/GetItems.php"
+    //let GetImageURL = "http://localhost:8888/GetImage.php"
     
     override func viewDidLoad()
     {

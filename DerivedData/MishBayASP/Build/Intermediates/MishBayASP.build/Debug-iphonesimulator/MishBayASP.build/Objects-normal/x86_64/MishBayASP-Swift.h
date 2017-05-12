@@ -210,8 +210,8 @@ SWIFT_CLASS("_TtC10MishBayASP19LoginViewController")
 @interface LoginViewController : UIViewController
 @property (nonatomic, weak) IBOutlet UITextField * _Null_unspecified emailTextField;
 @property (nonatomic, weak) IBOutlet UITextField * _Null_unspecified passwordTextField;
-@property (nonatomic, copy) NSString * _Null_unspecified username;
 @property (nonatomic, readonly, copy) NSString * _Nonnull LoginUserURL;
+@property (nonatomic, copy) NSString * _Null_unspecified username;
 - (void)viewDidLoad;
 - (void)didReceiveMemoryWarning;
 - (IBAction)loginTapped:(UIButton * _Nonnull)sender;

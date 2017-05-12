@@ -25,9 +25,10 @@ class DetailViewController: UIViewController
     var descriptionArray = [String]()
     var idArray = [String]()
     var imageArray = [UIImage]()
-    //let GetItemsURL = "http://srl17.sps.edu/GetItems.php"
-    let GetItemsURL = "http://localhost:8888/GetItems.php"
-    let GetImageURL = "http://localhost:8888/GetImage.php"
+    let GetItemsURL = "http://srl17.sps.edu/GetItems.php"
+    let GetImageURL = "http://srl17.sps.edu/GetImage.php"
+    //let GetItemsURL = "http://localhost:8888/GetItems.php"
+    //let GetImageURL = "http://localhost:8888/GetImage.php"
     
     override func viewDidLoad()
     {

@@ -14,7 +14,8 @@ class BidViewController: UIViewController
     
     @IBOutlet weak var bidAmountTextField: UITextField!
     var id: String!
-    let BidURL = "http://localhost:8888/Bid.php"
+    let BidURL = "http://srl17.sps.edu/Bid.php"
+    //let BidURL = "http://localhost:8888/Bid.php"
     
     override func viewDidLoad()
     {

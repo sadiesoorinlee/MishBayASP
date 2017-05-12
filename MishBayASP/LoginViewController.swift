@@ -14,8 +14,8 @@ class LoginViewController: UIViewController
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    //let LoginUserURL = "http://srl17.sps.edu/LoginUser.php"
-    let LoginUserURL = "http://localhost:8888/LoginUser.php"
+    let LoginUserURL = "http://srl17.sps.edu/LoginUser.php"
+    //let LoginUserURL = "http://localhost:8888/LoginUser.php"
     
     var username: String! //Save user's name as a variable
     {

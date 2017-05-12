@@ -15,8 +15,8 @@ class SignUpViewController: UIViewController
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
-    //let CreateUserURL = "http://srl17.sps.edu/CreateUser.php"
-    let CreateUserURL = "http://localhost:8888/CreateUser.php"
+    let CreateUserURL = "http://srl17.sps.edu/CreateUser.php"
+    //let CreateUserURL = "http://localhost:8888/CreateUser.php"
     
     override func viewDidLoad()
     {
