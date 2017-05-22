@@ -30,6 +30,7 @@ class TableViewController: UITableViewController
         refresh.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refresh.addTarget(self, action: #selector(TableViewController.getItems), for: UIControlEvents.valueChanged)
         tableView.addSubview(refresh)
+        tableView.reloadData()
         getItems()
     }
     
