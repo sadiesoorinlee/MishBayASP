@@ -114,6 +114,7 @@
 				TargetAttributes = {
 					1FAC9FDC1E537CAB00CCD195 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = Q9LPEP5APW;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -282,6 +283,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Q9LPEP5APW;
 				INFOPLIST_FILE = MishBayASP/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SadieLee.MishBayASP;
@@ -294,6 +296,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Q9LPEP5APW;
 				INFOPLIST_FILE = MishBayASP/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SadieLee.MishBayASP;
